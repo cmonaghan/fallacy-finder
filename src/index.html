@@ -1,15 +1,68 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link href="./output.css" rel="stylesheet">
+  <title>Logical Fallacy Finder</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .result-container {
+      margin-top: 20px;
+    }
+
+    .result-item {
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1 class="text-3xl font-bold underline"> Hello world! </h1>
+  <div class="container mt-5">
+    <h1 class="text-center">Logical Fallacy Finder</h1>
+    <form id="fallacyForm">
+      <div class="form-group">
+        <label for="textInput">Input your text here:</label>
+        <textarea class="form-control" id="textInput" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="results" class="result-container">
+      <!-- Results will be appended here -->
+    </div>
+  </div>
+  <script>
+    document.getElementById('fallacyForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const textInput = document.getElementById('textInput').value;
+      const resultsContainer = document.getElementById('results');
+
+      // Clear any previous results
+      resultsContainer.innerHTML = '';
+
+      fetch('YOUR_API_ENDPOINT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: textInput })
+      })
+        .then(response => response.json())
+        .then(data => {
+          data.fallacies.forEach(fallacy => {
+            const div = document.createElement('div');
+            div.classList.add('result-item');
+            div.innerHTML = `<strong>${fallacy.fallacy_type}</strong>: ${fallacy.text}<br><em>${fallacy.explanation}</em>`;
+            resultsContainer.appendChild(div);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          resultsContainer.innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+        });
+    });
+  </script>
 </body>
 
 </html>
