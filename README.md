@@ -21,6 +21,8 @@ Submit text and learn what fallacies it contains! Built using ChatGPT.
 
 ## Deploy with Vercel
 
+These steps are optional. Every push to the main branch will automatically trigger a Vercel prod deployment.
+
     # install vercel globally on your machine
     npm i -g vercel
 
@@ -50,6 +52,8 @@ Follow on-screen prompts from vercel:
     ? Want to modify these settings? no
 
 It will return some links.
+
+Disable authentication requirement in Settings > Deployment Protection > Vercel Authentication
 
 ### Connect to Github
 
