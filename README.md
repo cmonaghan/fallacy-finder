@@ -51,6 +51,10 @@ Follow on-screen prompts from vercel:
 
 It will return some links.
 
+### Connect to Github
+
+From the Vercel project settings page, connect the git repository.
+You'll need to follow the link to Github to enable Vercel to access the repo.
 
 ## Helpful resources
 
