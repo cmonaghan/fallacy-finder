@@ -1,0 +1,19 @@
+{
+  "fallacies": [
+    {
+        "fallacy_type": "Ad hominem",
+        "text": "Katherine is a bad choice for mayor because she didn’t grow up in this town.",
+        "explanation": "This is an ad hominem because xyz reason"
+    },
+    {
+        "fallacy_type": "Red herring",
+        "text": "Losing a tooth can be scary, but have you heard about the Tooth Fairy?",
+        "explanation": "This is a red herring because xyz reason"
+    },
+    {
+        "fallacy_type": "Straw man",
+        "text": "Erin thinks we need to stop using all plastics, right now, to save the planet from climate change.",
+        "explanation": "This is a straw man because xyz reason"
+    }
+  ]
+}
