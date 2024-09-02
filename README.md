@@ -4,6 +4,17 @@ Submit text and learn what fallacies it contains! Built using ChatGPT.
 
 ## Run locally
 
+Set your OpenAI API key
+
+    # create .env file
+    touch .env
+
+    # Save the following in your .env file
+    OPENAI_API_KEY="<secret_key>"
+
+
+Run the server
+
     # activate python virtual env
     python3 -m venv venv
     . venv/bin/activate
