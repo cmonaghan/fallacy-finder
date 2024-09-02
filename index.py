@@ -20,5 +20,6 @@ def api():
       return {"error": "Invalid JSON"}, 400
 
     ai_magic = get_fallacies(data["text"])
+    # TODO: handle case where we exceed token limit and incomplete json is returned
 
     return ai_magic, 200
