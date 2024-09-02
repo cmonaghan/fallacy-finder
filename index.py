@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from ai import get_fallacies
 
 app = Flask(__name__)
 
@@ -8,6 +9,11 @@ def home():
 
 @app.route('/api', methods=['POST'])
 def api():
-    with open('data.json', mode='r') as my_file:
-        text = my_file.read()
-        return text
+    data = request.get_json()
+
+    if data is None:
+      return {"error": "Invalid JSON"}, 400
+
+    ai_magic = get_fallacies(data["text"])
+
+    return ai_magic, 200

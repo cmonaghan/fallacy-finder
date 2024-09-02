@@ -53,7 +53,7 @@
           data.fallacies.forEach(fallacy => {
             const div = document.createElement('div');
             div.classList.add('result-item');
-            div.innerHTML = `<strong>${fallacy.fallacy_type}</strong>: ${fallacy.text}<br><em>${fallacy.explanation}</em>`;
+            div.innerHTML = `<strong>${fallacy.type}</strong>: \"${fallacy.text}\"<br><em>${fallacy.explanation}</em>`;
             resultsContainer.appendChild(div);
           });
         })
